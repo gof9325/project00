@@ -16,6 +16,11 @@ h1 {
   margin-left: 70px;
 }
 
+h3 {
+  width: 80%;
+  background-color: yellowgreen;
+}
+
 #menu_box {
   width: 80%;
   height: 80px;
@@ -42,6 +47,46 @@ h1 {
   margin-top: 20px;
 }
 
-.wrapper {
+article {
+  width: 80%;
+  float: left;
+  background-color: pink;
+  margin-top: 80px;
+}
+
+#bord {
+  width: 80%;
+  float: left;
+  background-color: pink;
+  margin: 0 10%;
+}
+
+#bord_line{
+  background-color: purple;
   display: grid;
+  grid-template-columns: 5% 20% 50% 10% 15% ;
+  grid-template-rows: 50px;
+}
+
+#bord_line p{
+  width: auto;
+  float: left;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 5% 20% 50% 10% 15% ;
+  grid-template-rows: 50px;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50px 100px;
+}
+
+.footer {
+  width: auto;
+  height: 200px;
+  background-color: orange;
 }

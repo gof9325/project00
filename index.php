@@ -7,10 +7,10 @@
   </head>
   <body>
     <header>
-      <h1>Project00</h1>
+      <h1><a href="http://localhost/project00/index.php">Project00</a></h1>
     </header>
     <div id='menu_box'>
-      <button type="button" name="bord">게시판</button>
+      <button type="button" name="bord" onclick="location.href='bord.php'">게시판</button>
     </div>
     <div id='login_box'>
       <div id='login_box0'>
@@ -37,19 +37,6 @@
       </div>
     </div>
     <!-- login_box end -->
-    <!-- article start -->
-    <article class="">
-      <h2>게시판</h2>
-      <div class="">
-        <h3>목록</h3>
-        <div class="wrapper">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-    </article>
+    <?php include("footer.php"); ?>
   </body>
 </html>
