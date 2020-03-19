@@ -1,0 +1,47 @@
+body {
+  width: 1440px;
+  margin: 0px auto;
+}
+
+header {
+  width: 1440px;
+  height: 500px;
+  float: left;
+  background-color: red;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 450px;
+  margin-left: 70px;
+}
+
+#menu_box {
+  width: 80%;
+  height: 80px;
+  float: left;
+  background-color: skyblue;
+}
+#menu_box button:hover {
+  background-color: pink;
+  color: white;
+}
+
+#login_box {
+  width: 20%;
+  height: 200px;
+  float: right;
+  background-color: green;
+}
+
+#login_box0 {
+  width: 80%;
+  height: 80%;
+  background-color: yellow;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.wrapper {
+  display: grid;
+}
