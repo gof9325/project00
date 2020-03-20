@@ -3,55 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title>게시판</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/master.css">
   </head>
   <body>
     <header>
       <?php include("index.php"); ?>
     </header>
-    <!-- article start -->
-    <article>
-      <h2>게시판</h2>
-      <div id="bord">
-          <?php
-             session_start();
-             include("process/connect.php");
-             if(empty($_GET['id'])){
-               echo "<h3>목록</h3>";
-               if($_SESSION['u_id']!=null){echo "<button name='글쓰기' onclick=\"location.href='write.php'\">글쓰기</button>";}
-               $result = mysqli_query($conn, 'SELECT * FROM topic');
-               echo '<div class="wraper">';
-               echo '<div id="bord_line">
-                 <p>No</p>
-                 <p>제목</p>
-                 <p>내용</p>
-                 <p>작성자</p>
-                 <p>시간</p>
-               </div>';
-                echo '<div class="table">';
-                while ($row = mysqli_fetch_assoc($result)) {
-                  echo '<div>'.$row['id'].'</div>';
-                  echo '<div><a href="http://localhost/project00/bord.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></div>';
-                  echo '<div><a href="http://localhost/project00/bord.php?id='.$row['id'].'">'.htmlspecialchars($row['description']).'</a></div>';
-                  echo '<div>'.$row['author'].'</div>';
-                  echo '<div>'.$row['created'].'</div>';
-                  }
-                echo '</div>';
-                echo '</div>';
-              } else {
-                $sql = "SELECT * FROM topic WHERE id =".$_GET['id'];
-                $result = mysqli_query($conn, $sql);
-                $row = mysqli_fetch_assoc($result);
-                echo '<div id="content">';
-                echo "제목 : ";
-                echo '<p>'.htmlspecialchars($row['title']).'</p>';
-                echo "내용 : ";
-                echo '<p>'.strip_tags($row['description'], '<a>').'</p>';
-                echo '</div>';
-              }
-                ?>
-      </article>
+    <div class="container">
+      <!-- article start -->
+      <div class="hero-unit">
+          <h2>BORD</h2>
+          <h3>LIST</h3>
+      </div>
+          <article>
+            <div id="bord">
+            <?php
+              session_start();
+              include("process/outer_connect.php");
+              if(empty($_GET['id'])){
+                $result = mysqli_query($conn, 'SELECT * FROM topic');
+                  echo '<div>';
+                  echo '<table class="table table-striped table-hover">';
+                  echo '<th>No</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>작성자</th>
+                        <th>시간</th>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      echo '<tr>';
+                      echo '<td>'.$row['id'].'</td>';
+                      echo '<td id="desc"><a href="http://localhost/project00/bord_content.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></td>';
+                      echo '<td id="desc"><a href="http://localhost/project00/bord_content.php?id='.$row['id'].'">'.htmlspecialchars($row['description']).'</a></td>';
+                      echo '<td>'.$row['author'].'</td>';
+                      echo '<td>'.$row['created'].'</td>';
+                      echo '</tr>';
+                      }
+                      echo '</table>';
+                      echo '</div>';
+                      if($_SESSION['u_id']!=null){echo "<button class=\"btn\" name='write' onclick=\"location.href='write.php'\">글쓰기</button>";}
+                } else {
+                  header('Location: http://localhost/project00/bord_content.php?id='.$_GET['id']);
+                }
+                  ?>
+              </article>
+      </div>
     </div>
   <!-- article end -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

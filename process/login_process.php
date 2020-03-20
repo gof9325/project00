@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connect.php");
+include("inner_connect.php");
 $u_id = mysqli_real_escape_string($conn, $_POST['u_id']);
 $u_pwd = mysqli_real_escape_string($conn, $_POST['u_pwd']);
 $sql = "SELECT * FROM user WHERE u_id='".$u_id."' AND u_pwd='".$u_pwd."'";
