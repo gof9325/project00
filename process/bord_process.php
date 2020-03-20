@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("inner_connect.php");
 $where = $_POST['submit'];
 if($where != "Cancel"){ // submit의 값이 Cancel이 아니라면
@@ -9,7 +10,7 @@ if($where != "Cancel"){ // submit의 값이 Cancel이 아니라면
       $sql = "UPDATE topic SET title="."'".$_POST['title']."'".", description="."'".$_POST['description']."'"."WHERE id ='".$_POST['id']."';";
       $result = mysqli_query($conn, $sql);
       header('Location: http://localhost/project00/bord_content.php?id='.$_POST['id']);
-    } if else($where == "Delete"){ // DELETE
+    } else if ($where == "Delete"){ // DELETE
       $sql = "DELETE FROM topic WHERE id ="."'".$_POST['id']."';";
       $result = mysqli_query($conn, $sql);
       header('Location: http://localhost/project00/bord.php');

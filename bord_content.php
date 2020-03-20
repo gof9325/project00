@@ -30,7 +30,7 @@
         if($_SESSION['u_id']!=null){
           echo "<div>";
           echo "<a class='btn' href='http://localhost/project00/write.php?id=".$row['id']."'>수정</a>";
-          echo "<a class='btn' href='javascript:go2Post("."'http://localhost/project00/process/bord_process', '".$row['id']."', "."'Delete'".");'>삭제</a>";
+          echo "<a class='btn' href='javascript:go2Post("."http://localhost/project00/process/bord_process, ".$row['id'].", "."Delete".");\'>삭제</a>";
           echo "</div>";
       } ?>
     </div>
