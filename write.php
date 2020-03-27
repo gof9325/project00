@@ -12,7 +12,7 @@
     </header>
     <div class="container">
         <?php
-          $id = $_POST['id'];
+          $id = $_GET['id'];
           if($id!=null){
             ?>
             <div class="hero-unit">

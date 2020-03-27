@@ -28,33 +28,20 @@
         echo '<p>'.strip_tags($row['description'], '<a>').'</p>';
         echo '</div>';
         if($_SESSION['u_id']!=null){
-          echo "<div>";
-          echo "<a class='btn' href='http://localhost/project00/write.php?id=".$row['id']."'>수정</a>";
-          echo "<a class='btn' href='javascript:go2Post("."http://localhost/project00/process/bord_process, ".$row['id'].", "."Delete".");\'>삭제</a>";
-          echo "</div>";
-      } ?>
+          ?>
+          <a class="btn" href="http://localhost/project00/write.php?id=<?php echo $_GET['id']?>" >Modify</a>
+          <form class="" action="process/bord_process.php" method="POST">
+            <input class="btn" type="submit" name="submit" value="Delete">
+            <input type="hidden" name="id" value=<?php echo $_GET['id'] ?>>
+          </form>
+        <?php  } ?>
     </div>
     <script type="text/javascript">
-      function go2Post(url, id, submit){
-        var form = document.createElement("form");
-        var parm = new Array();
-        var input = new Array();
-
-        form.action = url;
-        form.method = "POST";
-
-        param.push(['id',id]);
-        param.push(['submit',submit]);
-
-        for (var i = 0; i < parm.length; i++) {
-          input[i] = document.createElement("input");
-          input[i].setAttribute("type", "hidden");
-          input[i].setAttribute("name", param[i][0]);
-          input[i].setAttribute("value", param[i][1]);
-          form.appendChild(input[i]);
+      function askDelte(id) {
+        const result = confirm("삭제 하시겠습니까?");
+        if(result){
+          location.href = "process/bord_process.php"
         }
-        document.body.appendChild(form);
-        form.submit();
       }
     </script>
     <script src="https://code.jquery.com/jquery.js"></script>
